@@ -6,7 +6,8 @@ const PORT = 1500;
 const tasks = [];
 app.use(express.static('public'));
 app.use(express.json());//IMPORTANT else it says "TypeError: Cannot read property 'taskItem' of undefined"
-/*app.use((req,res,next) =>
+//setting the headers @Middleware code to resolve CROS error
+app.use((req,res,next) =>
 {
     res.setHeaders( new Headers(
         {
@@ -17,7 +18,7 @@ app.use(express.json());//IMPORTANT else it says "TypeError: Cannot read propert
     );//res.setHeaders(
     next();
 }
-);//app.use(*/
+);//app.use(
     
 app.post('/task',(req,res,next)=>
 {
